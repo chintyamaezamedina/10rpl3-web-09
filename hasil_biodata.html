@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Biodata</title>
+</head>
+<body>
+
+    <h2>Hasil Biodata</h2>
+
+    <!-- Tempat data akan ditampilkan -->
+    <div id="tampilData"></div>
+
+    <br>
+    <a href="form_biodata.html">← Kembali ke Form</a>
+
+    <script>
+        // 1. Ambil data dari URL (search params)
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // 2. Ambil masing-masing nilai berdasarkan 'name' di form
+        const nama = urlParams.get('nama') || '-';
+        const alamat = urlParams.get('alamat') || '-';
+        const jurusan = urlParams.get('jurusan') || '-';
+        const jk = urlParams.get('jk') || '-';
+        const tb = urlParams.get('tb') || '-';
+        const bb = urlParams.get('bb') || '-';
+        const hobi = urlParams.get('hobi') || '-';
+        const hp = urlParams.get('hp') || '-';
+
+        // 3. Tampilkan ke dalam tabel HTML
+        document.getElementById('tampilData').innerHTML = `
+            <table border="1" cellpadding="8" cellspacing="0">
+                <tr><td><strong>Nama</strong></td><td>${nama}</td></tr>
+                <tr><td><strong>Alamat</strong></td><td>${alamat}</td></tr>
+                <tr><td><strong>Jurusan</strong></td><td>${jurusan}</td></tr>
+                <tr><td><strong>Jenis Kelamin</strong></td><td>${jk}</td></tr>
+                <tr><td><strong>Tinggi Badan</strong></td><td>${tb} cm</td></tr>
+                <tr><td><strong>Berat Badan</strong></td><td>${bb} kg</td></tr>
+                <tr><td><strong>Hobi</strong></td><td>${hobi}</td></tr>
+                <tr><td><strong>No. HP</strong></td><td>${hp}</td></tr>
+            </table>
+        `;
+    </script>
+
+</body>
+</html>
